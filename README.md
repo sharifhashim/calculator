@@ -1,2 +1,2 @@
-# 
-Calculator project from The Odin Project
+# Calculator project 
+From The Odin Project
