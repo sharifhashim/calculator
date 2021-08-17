@@ -1,0 +1,20 @@
+#display {
+    display: grid;
+    grid-template-columns: repeat(1, 400px);
+    grid-template-rows: repeat(1, 75px);
+    justify-content: center;
+    
+}
+#calculator {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(4, 100px);
+    justify-content: center;
+    
+}
+input[type="text"] {
+    font-size: 30px;
+}
+input[type="button"] {
+    font-size: 25px;
+}
