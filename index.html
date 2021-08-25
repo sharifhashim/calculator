@@ -6,33 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
-     <div id="display">
-        <input type="text" name="display">
-     </div>
-    <div id="calculator">
-        <input type="button" name="seven" value="7">
-        <input type="button" name="eight" value="8">
-        <input type="button" name="nine" value="9">
-        <input type="button" name="add" value="+">
-        
-        <input type="button" name="four" value="4">
-        <input type="button" name="five" value="5">
-        <input type="button" name="six" value="6">
-        <input type="button" name="subtract" value="-">
-        
-        <input type="button" name="one" value="1">
-        <input type="button" name="two" value="2">
-        <input type="button" name="three" value="3">
-        <input type="button" name="multiply" value="*">
-        
-        <input type="button" name="clear" value=" C ">
-        <input type="button" name="zero" value="0">
-        <input type="button" name="equal" value=" = ">
-        <input type="button" name="divide" value="/">  
+    <div id="calc">
+        <div id="display">  </div>
+    <div id="topBtn">
+        <input type="button" id="joinBtn" name="clear" value="Clear">
+        <input type="button" id="joinBtn" name="backspace" style="font-size: 35px" value="&#8678">
     </div>
-    
+    <div id="calculator">
+        <input type="button" class='calculatorBtn' name="seven" value="7">
+        <input type="button" class='calculatorBtn' name="eight" value="8">
+        <input type="button" class='calculatorBtn' name="nine" value="9">
+        <input type="button" class='operatorBtn' id='salmonColor' name="add" value="+">
+        
+        <input type="button" class='calculatorBtn' name="four" value="4">
+        <input type="button" class='calculatorBtn' name="five" value="5">
+        <input type="button" class='calculatorBtn' name="six" value="6">
+        <input type="button" class='operatorBtn' id="salmonColor" style= "font-size: 35px" name="subtract" value="-">
+        
+        <input type="button" class='calculatorBtn' name="one" value="1">
+        <input type="button" class='calculatorBtn' name="two" value="2">
+        <input type="button" class='calculatorBtn' name="three" value="3">
+        <input type="button" class='operatorBtn' id='salmonColor' name="multiply" value="*">
+        
+        
+        <input type="button" class='calculatorBtn' name="zero" value="0">
+        <input type="button" class='calculatorBtn' name="decimal" style="font-size: 35px" value=".">
+        <input type="button" name="equal" value="=">
+        <input type="button" id="salmonColor" class='operatorBtn' name="divide" value="/">  
+    </div>
+    </div>
+   
 </body>
     <script src="script.js"></script>
-</html>
