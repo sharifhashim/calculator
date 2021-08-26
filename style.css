@@ -14,16 +14,16 @@
     grid-template-columns: repeat(1, 440px);
     grid-template-rows: repeat(1, 75px);
     justify-content: center;
-    margin-top: 20px;
+    
     font-size: 30px;
     text-align: end;
     padding-top: 25px;
     font-family: 'Geneva';
-    border: 2px solid black;
-    width: fit-content;
-    margin-left: 30px;
-    margin-bottom: 15px;
-    border-radius: 10px;
+    
+    border-bottom: 1px solid black;
+    
+    
+    
 }
 #calculator {
     display: grid;
@@ -33,7 +33,7 @@
     grid-column-gap: 10px;
     justify-content: center;
     background-color: lightgray;
-    height: 446px;
+    height: 485px;
     padding-top: 10px;
     border-bottom-right-radius: 5%;
     border-bottom-left-radius: 5%;

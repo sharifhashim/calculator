@@ -28,9 +28,14 @@ let result;
 let num1 = 0;
 let num2 = 0;
 let operateBtn;
-let display = document.querySelector('#display')
 let keyContent;
 let displayedNum;
+let display = document.querySelector('#display')
+let add = document.querySelector('input[name="add"]')
+let subtract = document.querySelector('input[name="subtract"]')
+let multiply = document.querySelector('input[name="multiply"]')
+let divide = document.querySelector('input[name="divide"]')
+let equals = document.querySelector('input[name="equal"]')
 
 function clear () {
     let clear = document.querySelector('input[name="clear"]');
@@ -47,21 +52,19 @@ function clear () {
 clear();
 
 function backspace () {
-    let backspace = document.querySelector('input[name="backspace"]')
-    backspace.addEventListener('click', function (e) {
-        let str1 = display.textContent
-        let str2 = str1.slice(0, -1)
-        display.textContent = str2
-    })
+    let str1 = display.textContent
+    let str2 = str1.slice(0, -1)
+    display.textContent = str2
 }
-backspace();
-
+let back = document.querySelector('input[name="backspace"]')
+back.addEventListener('click', function (e) {
+        backspace()
+    })
 
 let decimal = document.querySelector('input[name="decimal"]')
 decimal.addEventListener('click', function (e) {
             decimal.disabled = true;
     })
-
 
 let keys = document.querySelectorAll('.calculatorBtn');
     keys.forEach((btn) => {
@@ -83,10 +86,8 @@ let keys = document.querySelectorAll('.calculatorBtn');
             }
         })
     })
-
-let add = document.querySelector('input[name="add"]')
-    add.addEventListener('click', function (e) {
-        decimal.disabled = false;
+function plus () {
+    decimal.disabled = false;
         add.style.backgroundColor = '#fcd2c2'
         if (num1 == 0) {
             num1 = parseFloat(display.textContent) 
@@ -94,17 +95,19 @@ let add = document.querySelector('input[name="add"]')
             display.textContent = ""
         } 
         else if (num1 !==0) {
-
             num2 = parseFloat(display.textContent)
             result = operate(operateBtn, num1, num2)
             display.textContent = result
             num1 = result
             operateBtn = add.name
         } 
+}
+add.addEventListener('click', function (e) {
+    plus()
     })
-let subtract = document.querySelector('input[name="subtract"]')
-    subtract.addEventListener('click', function (e) {
-        decimal.disabled = false;
+
+function minus () {
+    decimal.disabled = false;
         subtract.style.backgroundColor = '#fcd2c2'
         if (num1 == 0) {
             num1 = parseFloat(display.textContent) 
@@ -117,12 +120,14 @@ let subtract = document.querySelector('input[name="subtract"]')
             display.textContent = result
             num1 = result
             operateBtn = subtract.name
-
         } 
+}
+subtract.addEventListener('click', function (e) {
+     minus()
     })
-let multiply = document.querySelector('input[name="multiply"]')
-    multiply.addEventListener('click', function (e) {
-        decimal.disabled = false;
+
+function times() {
+    decimal.disabled = false;
         multiply.style.backgroundColor = '#fcd2c2'
         if (num1 == 0) {
             num1 = parseFloat(display.textContent) 
@@ -136,39 +141,44 @@ let multiply = document.querySelector('input[name="multiply"]')
             num1 = result
             operateBtn = multiply.name
         } 
+}
+multiply.addEventListener('click', function (e) {
+    times()
     })
-let divide = document.querySelector('input[name="divide"]')
-    divide.addEventListener('click', function (e) {
-        decimal.disabled = false;
-        divide.style.backgroundColor = '#fcd2c2'
-        if (num1 == 0) {
-            num1 = parseFloat(display.textContent) 
-            operateBtn = divide.name
-            display.textContent = ""
-        } 
-        else if (num1 !==0) {
-            num2 = parseFloat(display.textContent)
-            if (num2 === 0) {
-                display.textContent = "Error"
-            }
-            else {
-                result = operate(operateBtn, num1, num2)
-            result = Math.round(result * 10000) / 10000
-            display.textContent = result
-            num1 = result
-            operateBtn = divide.name
-            }
+
+function divides () {
+    decimal.disabled = false;
+    divide.style.backgroundColor = '#fcd2c2'
+    if (num1 == 0) {
+        num1 = parseFloat(display.textContent) 
+        operateBtn = divide.name
+        display.textContent = ""
+    } 
+    else if (num1 !==0) {
+        num2 = parseFloat(display.textContent)
+        if (num2 === 0) {
+            display.textContent = "Error"
         }
+        else {
+        result = operate(operateBtn, num1, num2)
+        result = Math.round(result * 10000) / 10000
+        display.textContent = result
+        num1 = result
+        operateBtn = divide.name
+        }
+}}
+divide.addEventListener('click', function (e) {
+     divides()
     })
-let equals = document.querySelector('input[name="equal"]')
-equals.addEventListener('click', function(e) {
+
+function sum () {
     decimal.disabled = false;
     num2 = parseFloat(display.textContent)
     if (operateBtn === "divide" && num2 === 0) {
         display.textContent = "Error"
     }
     else {
-        result = operate(operateBtn, num1, num2)
+    result = operate(operateBtn, num1, num2)
     result = Math.round(result * 10000)/ 10000
     display.textContent = result 
     num1 = 0;
@@ -178,6 +188,9 @@ equals.addEventListener('click', function(e) {
     multiply.style.backgroundColor = "lightsalmon"
     divide.style.backgroundColor = "lightsalmon"
     }
+}
+equals.addEventListener('click', function(e) {
+    sum();
 })
 
 window.addEventListener('keydown', function (e) {
@@ -204,8 +217,31 @@ window.addEventListener('keydown', function (e) {
 }})
 document.addEventListener('keydown', function (e) {
     if (e.key === "Backspace") {
-        let str1 = display.textContent
-        let str2 = str1.slice(0, -1)
-        display.textContent = str2
+        backspace()
+    }
+})
+document.addEventListener('keydown', function(e) {
+    if (e.key === "+") {
+       plus()
+    }
+})
+document.addEventListener('keydown', function (e) {
+    if (e.key === "-") {
+        minus()
+    }
+})
+document.addEventListener('keydown', function(e) {
+    if (e.key === "*") {
+        times()
+    }
+})
+document.addEventListener('keydown', function(e) {
+    if (e.key === "/") {
+        divides()
+    }
+})
+document.addEventListener('keydown', function (e) {
+    if (e.key === "Enter") {
+        sum()
     }
 })
